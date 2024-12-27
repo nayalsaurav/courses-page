@@ -9,7 +9,7 @@ const FilterSection = ({ options, onFilterChange }) => {
   };
 
   return (
-    <div className="flex justify-center gap-3 pt-4 w-11/12 max-w-[1200px] mx-auto items-center">
+    <div className="flex flex-wrap justify-center gap-3 pt-4 w-11/12 max-w-[1200px] mx-auto items-center">
       {options.map((filter) => (
         <div
           key={filter.id}
