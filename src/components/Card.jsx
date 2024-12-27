@@ -8,7 +8,13 @@ const Card = ({ data }) => {
 
   const { id, title, description, image } = data;
   const [liked, setLiked] = useState(false);
-
+  function previousLike() {
+    array.forEach(id => {
+      if(id===data.id){
+        setLiked(true);
+      }
+    });
+  }
   function likeHandler() {
     setLiked((prevLiked) => {
       const newLiked = !prevLiked;
