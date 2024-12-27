@@ -3,18 +3,11 @@ import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Card = ({ data }) => {
+const Card = ({ data,fxn,likedCourses }) => {
   if (!data) return null;
 
   const { id, title, description, image } = data;
   const [liked, setLiked] = useState(false);
-  function previousLike() {
-    array.forEach(id => {
-      if(id===data.id){
-        setLiked(true);
-      }
-    });
-  }
   function likeHandler() {
     setLiked((prevLiked) => {
       const newLiked = !prevLiked;
@@ -27,6 +20,7 @@ const Card = ({ data }) => {
           autoClose: 2000,
         });
       }
+      fxn(id);
       return newLiked;
     });
   }
@@ -49,7 +43,7 @@ const Card = ({ data }) => {
           className="absolute top-[-1.5rem] right-2 p-2 bg-white rounded-full cursor-pointer"
           onClick={likeHandler}
         >
-          {liked ? (
+          {(liked || likedCourses.includes(id))? (
             <FcLike size={25} color="red" />
           ) : (
             <FcLikePlaceholder size={25} color="white" />
