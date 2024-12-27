@@ -10,16 +10,6 @@ const App = () => {
   const [data, setData] = useState([]);
   const [likedCourses, setLikedCourses] = useState([]);
   const [loading, setLoading] = useState(true);
- function likedCoursesHandler(courseId) {
-   setLikedCourses((prevLikedCourses) => {
-     if (prevLikedCourses.includes(courseId)) {
-       return prevLikedCourses.filter((id) => id !== courseId);
-     } else {
-       return [...prevLikedCourses, courseId];
-     }
-   });
- }
-
 
   useEffect(() => {
     async function getData() {
@@ -40,6 +30,7 @@ const App = () => {
     }
     getData();
   },[]);
+  
   return (
     <div className="min-h-screen flex flex-col font-poppins ">
       <Navbar />

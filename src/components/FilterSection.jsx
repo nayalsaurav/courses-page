@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const FilterSection = ({ options, onFilterChange }) => {
-  const [selectedFilter, setSelectedFilter] = useState("1"); // Track the selected filter
+  const [selectedFilter, setSelectedFilter] = useState("1");
 
   const clickHandler = (filter) => {
-    setSelectedFilter(filter.id); // Update the selected filter
-    onFilterChange(filter.title); // Notify parent about the change
+    setSelectedFilter(filter.id);
+    onFilterChange(filter.title);
   };
 
   return (
